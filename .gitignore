@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+db2_credentials*.json
+*.pem
+*.key
+*.crt
+*.arm
