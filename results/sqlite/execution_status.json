@@ -1,0 +1,17 @@
+{
+  "engine": "SQLite",
+  "cloud_executed": false,
+  "lecturer_approved_local_alternative": true,
+  "source_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+  "executed_at_utc": "2026-10-07T21:27:44.789157+00:00",
+  "all_source_records_match": true,
+  "row_count": 70000,
+  "disease_cases": 34979,
+  "integrity_check": "ok",
+  "connection_closed": true,
+  "reopened_connection_closed": true,
+  "export_matches_source": true,
+  "executed_queries": 13,
+  "export_rows": 70000,
+  "success": true
+}
