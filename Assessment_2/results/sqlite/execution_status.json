@@ -3,7 +3,7 @@
   "cloud_executed": false,
   "lecturer_approved_local_alternative": true,
   "source_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
-  "executed_at_utc": "2026-11-05T19:12:07.125253+00:00",
+  "executed_at_utc": "2026-11-05T19:35:52.530554+00:00",
   "all_source_records_match": true,
   "row_count": 70000,
   "disease_cases": 34979,

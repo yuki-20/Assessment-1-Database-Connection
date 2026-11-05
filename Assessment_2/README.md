@@ -1,76 +1,53 @@
-# On going assessment 2
+# Assessment 2: Database Access with Python
 
-## II. Access DB2 on Cloud using Python
+Section II of the ADY201m brief: retrieve patient records through Python, answer
+ten SQL questions, export the table and close the connection.
 
-Executed answers to the ten tasks in the supplied ADY201m brief, section II
-(pages 14-20). Reuses the student's Assessment 1 database implementation.
+Open the [executed notebook](02_Access_Database.ipynb), or download the
+[HTML report](02_Access_Database.html). Results use the approved SQLite database
+alternative. Optional Db2 SSL code is included in the notebook.
 
-**Saved execution uses the lecturer-approved SQLite alternative documented in
-Assessment 1.** IBM Db2 Cloud code is included but has not been executed live.
-
-Open [the executed notebook](02_Access_Database.ipynb) on GitHub, or download
-[the HTML report](02_Access_Database.html) to view it in a browser.
-
-| Task | Delivered result |
+| Task | Query |
 | --- | --- |
-| 1 | Total records |
-| 2 | Records with cardiovascular disease |
-| 3 | Patient counts by gender code |
-| 4 | Ten highest systolic blood pressures; disease count and percentage |
-| 5 | Ten heaviest patients above mean weight; disease count and percentage |
-| 6 | Ten patients with GLUC > 1; disease count |
-| 7 | Ten oldest patients; disease count |
-| 8 | Ten patients with CHOLESTEROL = 3; disease count |
-| 9 | Ten smokers; disease count |
-| 10 | Ten physically active patients; disease count |
-| Export | All 70,000 records exported through SQL; every value verified |
-| Closure | Original and verification connections closed; database integrity checked |
+| 1 | Count all patient records |
+| 2 | Count cardiovascular disease cases |
+| 3 | Count patients by gender code |
+| 4 | Select the ten highest systolic pressures; calculate disease percentage |
+| 5 | Select ten patients above mean weight; calculate disease percentage |
+| 6 | Select ten patients with glucose category above normal; count disease cases |
+| 7 | Select the ten oldest patients; count disease cases |
+| 8 | Select ten patients with cholesterol category 3; count disease cases |
+| 9 | Select ten smokers; count disease cases |
+| 10 | Select ten physically active patients; count disease cases |
 
-The notebook includes SQL, tables, findings and a task summary. Sample ordering
-is explicit and reproducible; unordered examples in the brief can differ.
-Age stays in days. Glucose/cholesterol are category codes. Disease percentages
-describe selected samples. Raw outliers are preserved for this database exercise.
+The export contains all 70,000 records and 13 original columns. Every exported
+value is checked against the source. Both database connections are closed, and
+the persisted database passes its integrity check.
 
-### Complete project files
+Samples use explicit ordering with ID to resolve ties. Task 5 selects the ten
+heaviest patients above the mean. Unordered examples in the brief can return
+different samples. Age stays in days; disease percentages describe the selected
+records. Numeric category codes retain their supplied meaning.
 
-- `02_Access_Database.ipynb`: executed notebook.
-- `02_Access_Database.html`: standalone readable report.
-- `database_lab.py`: database, query, export and optional Db2 implementation.
-- `verify_results.py`: independent calculations from the original CSV.
-- `data/`: original CSV, persistent SQLite database, complete SQL export.
-- `sql/`: SQLite and Db2 table definitions and queries, including three supplementary queries.
-- `results/`: query CSVs, saved results, execution and independent verification evidence.
-- `requirements.txt`, `requirements-db2.txt`, `.env.example`: dependencies and empty credential references.
+## Files and execution
 
-### Run
+The folder includes the original dataset, SQLite database, SQL export, notebook,
+HTML report, database helper, SQLite/Db2 SQL and per-query results. Q11-Q13 are
+supplementary exercises retained from the shared database implementation.
 
-Use Python 3.12 or a compatible Python environment:
+With Python 3.12, run from this folder:
 
 ```text
 python -m pip install -r requirements.txt
 python -m notebook
 ```
 
-Open `02_Access_Database.ipynb` from this folder and choose **Run All**.
-For the database and independent verification without Jupyter:
+Choose **Run All** in the notebook. To verify every query and the complete export:
 
 ```text
-python database_lab.py
 python verify_results.py
 ```
 
-The verification checks all 13 query answers against independent calculations,
-all exported values, database integrity, unique IDs and saved notebook outputs.
-
-### Optional IBM Db2 Cloud
-
-If actual cloud execution is required, load the original semicolon-delimited CSV
-into `CARDIO_TRAIN` using `sql/create_table_db2.sql`, install
-`requirements-db2.txt`, and use section 7's private credential prompts or the
-environment variables in `.env.example`. Set `RUN_DB2 = True` only when ready.
-That path uses SSL, executes the queries, exports all records and closes the
-connection. Cloud results are stored separately. Never commit credentials.
-
-References: supplied ADY201m brief and dataset;
-[sqlite3](https://docs.python.org/3/library/sqlite3.html);
-[IBM Db2 Python driver](https://github.com/ibmdb/python-ibmdb).
+For Db2, install `requirements-db2.txt`, load the source CSV into `CARDIO_TRAIN`
+and use the notebook's private credential prompts. Live cloud execution is not
+included in the saved results.

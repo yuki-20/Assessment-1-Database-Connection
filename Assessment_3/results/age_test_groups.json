@@ -1,0 +1,8 @@
+{
+  "cutoff_years": 53.3028495942114,
+  "younger_n": 31540,
+  "older_n": 38460,
+  "younger_disease_fraction": 0.392422320862397,
+  "older_disease_fraction": 0.5876755070202808,
+  "levene_p_value": 9.244306125779258e-08
+}

@@ -7802,13 +7802,10 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="On-going-assessment-2">On going assessment 2<a class="anchor-link" href="#On-going-assessment-2">¶</a></h1><h2 id="II.-Access-DB2-on-Cloud-using-Python">II. Access DB2 on Cloud using Python<a class="anchor-link" href="#II.-Access-DB2-on-Cloud-using-Python">¶</a></h2><p>This notebook answers the ten tasks in section II of the supplied ADY201m brief
-(pages 14-20), then exports the complete table and closes the connection.</p>
-<p><strong>Execution: the lecturer-approved local SQLite alternative</strong>, as documented in
-Assessment 1. The saved results below are actual local results. IBM Db2 Cloud
-code is provided separately in section 7; live cloud execution is unverified.</p>
-<p>Use <strong>Run All</strong> from this folder. All input data, database, code, SQL, results and
-dependencies are included. Assessment 3 analysis/modeling is a separate task.</p>
+<h1 id="Assessment-2">Assessment 2<a class="anchor-link" href="#Assessment-2">¶</a></h1><h2 id="II.-Access-DB2-on-Cloud-using-Python">II. Access DB2 on Cloud using Python<a class="anchor-link" href="#II.-Access-DB2-on-Cloud-using-Python">¶</a></h2><p>Ten SQL exercises covering record counts, category counts, sorted patient samples
+and cardiovascular disease proportions, followed by a complete CSV export.</p>
+<p><strong>Environment:</strong> Python and the approved SQLite database alternative.
+The optional IBM Db2 implementation is provided separately.</p>
 </div>
 </div>
 </div>
@@ -9471,8 +9468,7 @@ Observed disease percentage: 30.0%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Results-summary">Results summary<a class="anchor-link" href="#Results-summary">¶</a></h3><p>The following table summarizes all ten required tasks from the executed SQL.
-The row-level output above remains the evidence for each selected sample.</p>
+<h3 id="Results-summary">Results summary<a class="anchor-link" href="#Results-summary">¶</a></h3><p>Results from the ten SQL exercises are summarized below.</p>
 </div>
 </div>
 </div>
@@ -9688,7 +9684,7 @@ Verification connection closed: True
 <td>False</td>
 <td>True</td>
 <td>21a705d23381b0dfd6a6416da701b490744f1fc3b47e9f...</td>
-<td>2026-11-05T19:11:45.159355+00:00</td>
+<td>2026-11-05T19:35:50.008800+00:00</td>
 <td>True</td>
 <td>70000</td>
 <td>34979</td>
@@ -9721,9 +9717,7 @@ The counts by gender code are 45,530 for code 1 and 24,470 for code 2.</p>
 16,020. These values are retained to reproduce the raw-data exercise and should be
 investigated during the later data-cleaning stage. Query Q07 reports ages in both
 days and approximate years, without changing the stored data.</p>
-<p>The query outputs, export, closure checks and database integrity result provide local
-execution evidence. This submission does not claim that a Db2 Cloud connection or
-a Watson Studio session was executed.</p>
+<p>Query outputs, the complete export and database integrity checks were generated locally.</p>
 </div>
 </div>
 </div>
@@ -9734,8 +9728,7 @@ a Watson Studio session was executed.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.-Optional-IBM-Db2-Cloud-connection">7. Optional IBM Db2 Cloud connection<a class="anchor-link" href="#7.-Optional-IBM-Db2-Cloud-connection">¶</a></h3><p>This section preserves the original Cloud connection objective as an optional path.
-It is skipped by default and is not needed for the approved SQLite version.</p>
+<h3 id="7.-Optional-IBM-Db2-Cloud-connection">7. Optional IBM Db2 Cloud connection<a class="anchor-link" href="#7.-Optional-IBM-Db2-Cloud-connection">¶</a></h3><p>Use this section with an available Db2 instance and private service credentials.</p>
 <p>The helper imports <code>ibm_db</code> and <code>ibm_db_dbi</code>, builds an SSL DSN, calls
 <code>ibm_db.connect(dsn, "", "")</code>, retrieves server and client metadata using
 <code>ibm_db.server_info</code> and <code>ibm_db.client_info</code>, retrieves the table through a DB-API
@@ -9821,69 +9814,14 @@ are stored separately from the local results.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Assessment-2-completion-evidence">Assessment 2 completion evidence<a class="anchor-link" href="#Assessment-2-completion-evidence">¶</a></h3><table>
-<thead>
-<tr>
-<th>Requirement</th>
-<th>Evidence</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Task 1: count all records</td>
-<td>Q01</td>
-</tr>
-<tr>
-<td>Task 2: count disease cases</td>
-<td>Q02</td>
-</tr>
-<tr>
-<td>Task 3: count gender codes</td>
-<td>Q03</td>
-</tr>
-<tr>
-<td>Task 4: ten highest systolic pressures, disease percentage</td>
-<td>Q04</td>
-</tr>
-<tr>
-<td>Task 5: ten patients above mean weight, disease percentage</td>
-<td>Q05</td>
-</tr>
-<tr>
-<td>Task 6: ten patients with GLUC &gt; 1, disease count</td>
-<td>Q06</td>
-</tr>
-<tr>
-<td>Task 7: ten oldest patients, disease count</td>
-<td>Q07</td>
-</tr>
-<tr>
-<td>Task 8: ten patients with CHOLESTEROL = 3, disease count</td>
-<td>Q08</td>
-</tr>
-<tr>
-<td>Task 9: ten smokers, disease count</td>
-<td>Q09</td>
-</tr>
-<tr>
-<td>Task 10: ten active patients, disease count</td>
-<td>Q10</td>
-</tr>
-<tr>
-<td>Export all records to CSV, close connection</td>
-<td>Section 5</td>
-</tr>
-<tr>
-<td>Independently verify every SQL answer and full export</td>
-<td><code>python verify_results.py</code></td>
-</tr>
-</tbody>
-</table>
-<p>This submission reuses the student's database implementation from Assessment 1.
-No live IBM Cloud or Watson Studio execution is claimed.</p>
-<p>References: supplied ADY201m assignment, section II, pages 14-20;
+<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h3><p>The ten required SQL exercises are complete. Each selected sample includes its
+disease count and proportion where requested. The table contains 70,000 records;
+the full SQL export matches the original data, and both connections are closed.</p>
+<p>Database connection functions are shared with Assessment 1. Assessment 3 uses the
+export for exploration and classification.</p>
+<p>References: supplied ADY201m brief, section II;
 <a href="https://docs.python.org/3/library/sqlite3.html">Python sqlite3</a>;
-<a href="https://github.com/ibmdb/python-ibmdb">IBM Python driver</a>.</p>
+<a href="https://github.com/ibmdb/python-ibmdb">IBM Db2 driver</a>.</p>
 </div>
 </div>
 </div>

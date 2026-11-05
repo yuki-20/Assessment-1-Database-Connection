@@ -1,4 +1,4 @@
-"""Part I database lab: approved local execution and optional IBM Db2 execution."""
+"""SQL database connection, queries, CSV export and optional IBM Db2 execution."""
 
 from pathlib import Path
 import csv

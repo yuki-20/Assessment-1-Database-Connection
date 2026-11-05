@@ -1,0 +1,5 @@
+variable,test,statistic,p_value,effect,effect_measure,p_holm,reject_at_0_05
+CHOLESTEROL,One-way ANOVA,1799.660785669959,0.0,0.32532825910018237,Range of disease proportions,0.0,True
+AGE_YEARS,Welch t-test: older vs younger than mean,52.445920019536366,0.0,0.19525318615788384,Difference in disease proportions,0.0,True
+WEIGHT,Pearson correlation,0.18165956179862522,0.0,0.18165956179862522,Pearson r,0.0,True
+ALCO,Chi-square with Yates correction,3.696547466479263,0.05452518218322108,0.007266898991296339,Cramers V,0.05452518218322108,False
