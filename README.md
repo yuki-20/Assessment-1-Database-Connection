@@ -1,82 +1,66 @@
-# ADY201m: Cardiovascular Data Analysis
+# ADY201m Assessment 1: Database Connection with Python
 
-Three assessments covering Python database connections, SQL data retrieval and
-classification of cardiovascular disease using 70,000 patient records.
+Connect Python to a persistent SQL database, retrieve patient records, export
+the complete table and close the connection.
 
-| Assessment | Notebook | Report | Scope |
-| --- | --- | --- | --- |
-| 1. Connect to a database using Python | [Notebook](01_Database_Connection.ipynb) | [HTML](01_Database_Connection.html) | Connection, metadata, retrieval, export and closure |
-| 2. Access the database using Python | [Notebook](Assessment_2/02_Access_Database.ipynb) | [HTML](Assessment_2/02_Access_Database.html) | Ten SQL exercises, patient samples and disease proportions |
-| 3. Data Analysis with Python | [Notebook](Assessment_3/03_Data_Analysis.ipynb) | [HTML](Assessment_3/03_Data_Analysis.html) | Exploration, cleaning, hypothesis tests, OLS and classification |
+Open the [executed notebook](01_Database_Connection.ipynb), or download the
+[HTML report](01_Database_Connection.html).
 
-Notebooks include executed code and results. Download an HTML report to read it
-in a browser without Jupyter.
+## Separate assessment repositories
+
+- [Assessment 2: Access the Database with Python](https://github.com/yuki-20/Assessment-2-Database-Access)
+- [Assessment 3: Data Analysis with Python](https://github.com/yuki-20/Assessment-3-Data-Analysis)
+
+Each repository includes its own notebook, report, input data and verification
+code. They can be downloaded and run independently.
 
 ## Results
 
-- The database and complete SQL export match all 70,000 original records.
-- Assessment 2 includes all ten required queries, plus three supplementary queries.
-- Assessment 3 compares seven classifiers and three additional tuning settings.
-- The selected gradient-boosting model achieves **73.20% test accuracy** and
-  **0.799 ROC AUC** on 21,000 held-out records. Its 95% accuracy interval is
-  72.60%-73.80%; the majority-class baseline is 50.03%.
+The database contains 70,000 records and 13 original columns. All values match
+the supplied CSV. The full SQL export is verified against the source, the
+database passes its integrity check, and both connections are closed.
 
-Model selection uses a separate validation partition. Blood-pressure clipping,
-scaling and category encoding are fitted within the training pipelines.
-The model is an academic analysis of this dataset, not a diagnostic tool.
+The table contains 34,979 disease cases and 35,021 records without disease.
+Age remains in days. Raw measurements are preserved in the database and export.
 
-## Run locally
+## Run
 
-Use Python 3.12. From the repository folder:
+Use Python 3.12. From this repository folder:
 
 ```text
 python -m pip install -r requirements.txt
 python -m notebook
 ```
 
-Open a notebook from its containing folder, select the Python kernel and choose
-**Run All**. Assessment 3 reads `data/CARDIO_TRAIN_export.csv` from the repository
-root; keep the downloaded project structure intact.
-
-Check the data, SQL results, saved analysis and notebook outputs:
+Open `01_Database_Connection.ipynb`, select the Python kernel and choose
+**Run All**. To run the database verification without Jupyter:
 
 ```text
-python verify_all.py
+python database_lab.py
 ```
-
-This verification does not retrain the classifiers. Running the Assessment 3
-notebook reproduces the complete analysis and training process.
-
-## Project structure
 
 | Location | Contents |
 | --- | --- |
-| Root notebook and `database_lab.py` | Assessment 1 and shared database implementation |
-| `data/` | Original CSV, persistent SQLite database and full SQL export |
-| `sql/` | Table definitions and queries for SQLite and IBM Db2 |
+| `01_Database_Connection.ipynb` | Executed connection notebook |
+| `01_Database_Connection.html` | Standalone report |
+| `database_lab.py` | Connection, queries, export and verification |
+| `data/` | Original CSV, SQLite database and complete SQL export |
+| `sql/` | SQLite and IBM Db2 table definitions and queries |
 | `results/` | Database results and execution records |
-| `Assessment_2/` | Assessment 2 notebook, report and standalone project files |
-| `Assessment_3/` | Analysis code, notebook, report, figures, tests and model results |
-| `requirements.txt` | Versions used to execute the local notebooks |
 
-## Execution environment
+## Environment
 
-The database assessments use the previously approved SQLite alternative to IBM
-Db2 Cloud. Optional SSL Db2 code is included in the database notebooks; install
-`requirements-db2.txt` and supply private credentials through the prompts or
-environment variables in `.env.example` to run it.
-
-All published results were generated locally. IBM Db2 Cloud and Watson Studio
-were not executed. The brief's Watson Studio rerun remains outstanding unless
-the lecturer approves a local substitute.
+Saved results use the previously approved SQLite alternative to IBM Db2 Cloud.
+The notebook also includes optional SSL Db2 code. To run that path, install
+`requirements-db2.txt` and use private service credentials through the prompts
+or environment variables in `.env.example`. Live cloud execution is not
+included in the saved results.
 
 The supplied brief is excluded because it contains example connection secrets.
-The original dataset and reproducible project files are included.
+The original dataset is included.
 
 ## References
 
-- Supplied ADY201m assignment brief and cardiovascular dataset.
-- [Dataset description](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset).
+- Supplied ADY201m assignment brief, section I, and cardiovascular dataset.
 - [Python sqlite3](https://docs.python.org/3/library/sqlite3.html).
 - [IBM Db2 Python driver](https://github.com/ibmdb/python-ibmdb).
-- [scikit-learn](https://scikit-learn.org/stable/), [SciPy](https://docs.scipy.org/doc/scipy/reference/stats.html), [statsmodels](https://www.statsmodels.org/stable/).

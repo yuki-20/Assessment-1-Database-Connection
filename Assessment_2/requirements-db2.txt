@@ -1,2 +1,0 @@
--r requirements.txt
-ibm_db==3.3.0
