@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "required_tasks_verified": 10,
+  "supplementary_queries_verified": 3,
+  "source_records": 70000,
+  "export_all_records_match": true,
+  "saved_notebook_code_cells": 16,
+  "cloud_executed": false
+}

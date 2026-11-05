@@ -1,5 +1,8 @@
 # Ongoing Assessment 1 - Part I: Python database connection
 
+**Assessment 2:** [II. Access DB2 on Cloud using Python](Assessment_2/README.md)
+includes its own executed notebook, complete data, SQL, results and independent verification.
+
 [![Verify assessment](https://github.com/yuki-20/Assessment-1-Database-Connection/actions/workflows/verify.yml/badge.svg)](https://github.com/yuki-20/Assessment-1-Database-Connection/actions/workflows/verify.yml)
 
 Open the [executed notebook](01_Database_Connection.ipynb) to read the code and saved results directly on GitHub. Download [the HTML report](01_Database_Connection.html) to view it in a browser.

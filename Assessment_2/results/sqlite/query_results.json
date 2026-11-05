@@ -1,0 +1,818 @@
+[
+  {
+    "id": "Q01",
+    "title": "Total patient records",
+    "sql": "SELECT COUNT(*) AS TOTAL_ROWS FROM CARDIO_TRAIN",
+    "columns": [
+      "TOTAL_ROWS"
+    ],
+    "rows": [
+      [
+        70000
+      ]
+    ]
+  },
+  {
+    "id": "Q02",
+    "title": "Records with cardiovascular disease",
+    "sql": "SELECT COUNT(*) AS DISEASE_CASES FROM CARDIO_TRAIN WHERE CARDIO = 1",
+    "columns": [
+      "DISEASE_CASES"
+    ],
+    "rows": [
+      [
+        34979
+      ]
+    ]
+  },
+  {
+    "id": "Q03",
+    "title": "Patient counts by gender code",
+    "sql": "SELECT GENDER, COUNT(*) AS PATIENTS FROM CARDIO_TRAIN GROUP BY GENDER ORDER BY GENDER",
+    "columns": [
+      "GENDER",
+      "PATIENTS"
+    ],
+    "rows": [
+      [
+        1,
+        45530
+      ],
+      [
+        2,
+        24470
+      ]
+    ]
+  },
+  {
+    "id": "Q04",
+    "title": "Ten highest systolic blood pressure values",
+    "sql": "SELECT ID, AP_HI, CARDIO FROM CARDIO_TRAIN ORDER BY AP_HI DESC, ID LIMIT 10",
+    "columns": [
+      "ID",
+      "AP_HI",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        58374,
+        16020,
+        1
+      ],
+      [
+        36339,
+        14020,
+        1
+      ],
+      [
+        36414,
+        14020,
+        1
+      ],
+      [
+        66998,
+        14020,
+        1
+      ],
+      [
+        67502,
+        14020,
+        0
+      ],
+      [
+        79116,
+        13010,
+        1
+      ],
+      [
+        79679,
+        13010,
+        0
+      ],
+      [
+        11089,
+        11500,
+        1
+      ],
+      [
+        73356,
+        11020,
+        1
+      ],
+      [
+        99089,
+        2000,
+        1
+      ]
+    ],
+    "disease_cases": 8,
+    "sample_size": 10,
+    "disease_percent": 80.0
+  },
+  {
+    "id": "Q05",
+    "title": "Ten heaviest patients above the average weight",
+    "sql": "SELECT ID, WEIGHT, CARDIO FROM CARDIO_TRAIN WHERE WEIGHT > (SELECT AVG(WEIGHT) FROM CARDIO_TRAIN) ORDER BY WEIGHT DESC, ID LIMIT 10",
+    "columns": [
+      "ID",
+      "WEIGHT",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        618,
+        200.0,
+        0
+      ],
+      [
+        71945,
+        200.0,
+        1
+      ],
+      [
+        87498,
+        183.0,
+        1
+      ],
+      [
+        52564,
+        181.0,
+        1
+      ],
+      [
+        6716,
+        180.0,
+        1
+      ],
+      [
+        64829,
+        180.0,
+        1
+      ],
+      [
+        86506,
+        180.0,
+        1
+      ],
+      [
+        87612,
+        180.0,
+        1
+      ],
+      [
+        28683,
+        178.0,
+        0
+      ],
+      [
+        39156,
+        178.0,
+        1
+      ]
+    ],
+    "disease_cases": 8,
+    "sample_size": 10,
+    "disease_percent": 80.0
+  },
+  {
+    "id": "Q06",
+    "title": "Ten patients with glucose above normal",
+    "sql": "SELECT ID, GLUC, CARDIO FROM CARDIO_TRAIN WHERE GLUC > 1 ORDER BY ID LIMIT 10",
+    "columns": [
+      "ID",
+      "GLUC",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        8,
+        2,
+        0
+      ],
+      [
+        12,
+        3,
+        1
+      ],
+      [
+        27,
+        3,
+        0
+      ],
+      [
+        32,
+        2,
+        1
+      ],
+      [
+        40,
+        3,
+        0
+      ],
+      [
+        68,
+        3,
+        1
+      ],
+      [
+        71,
+        2,
+        0
+      ],
+      [
+        92,
+        2,
+        1
+      ],
+      [
+        103,
+        2,
+        0
+      ],
+      [
+        117,
+        2,
+        1
+      ]
+    ],
+    "disease_cases": 5,
+    "sample_size": 10,
+    "disease_percent": 50.0
+  },
+  {
+    "id": "Q07",
+    "title": "Ten oldest patients (age in days)",
+    "sql": "SELECT ID, AGE, AGE / 365.0 AS AGE_YEARS, CARDIO FROM CARDIO_TRAIN ORDER BY AGE DESC, ID LIMIT 10",
+    "columns": [
+      "ID",
+      "AGE",
+      "AGE_YEARS",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        81643,
+        23713,
+        64.96712328767123,
+        1
+      ],
+      [
+        97124,
+        23701,
+        64.93424657534247,
+        1
+      ],
+      [
+        72373,
+        23692,
+        64.90958904109588,
+        1
+      ],
+      [
+        29892,
+        23690,
+        64.9041095890411,
+        1
+      ],
+      [
+        52297,
+        23687,
+        64.8958904109589,
+        1
+      ],
+      [
+        53805,
+        23684,
+        64.88767123287671,
+        1
+      ],
+      [
+        57321,
+        23678,
+        64.87123287671233,
+        0
+      ],
+      [
+        98749,
+        23677,
+        64.86849315068493,
+        1
+      ],
+      [
+        25799,
+        23675,
+        64.86301369863014,
+        1
+      ],
+      [
+        82562,
+        23675,
+        64.86301369863014,
+        1
+      ]
+    ],
+    "disease_cases": 9,
+    "sample_size": 10,
+    "disease_percent": 90.0
+  },
+  {
+    "id": "Q08",
+    "title": "Ten patients with cholesterol code 3",
+    "sql": "SELECT ID, CHOLESTEROL, CARDIO FROM CARDIO_TRAIN WHERE CHOLESTEROL = 3 ORDER BY ID LIMIT 10",
+    "columns": [
+      "ID",
+      "CHOLESTEROL",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        9,
+        3,
+        0
+      ],
+      [
+        12,
+        3,
+        1
+      ],
+      [
+        35,
+        3,
+        1
+      ],
+      [
+        42,
+        3,
+        1
+      ],
+      [
+        43,
+        3,
+        1
+      ],
+      [
+        46,
+        3,
+        1
+      ],
+      [
+        59,
+        3,
+        1
+      ],
+      [
+        68,
+        3,
+        1
+      ]
+    ],
+    "disease_cases": 9,
+    "sample_size": 10,
+    "disease_percent": 90.0
+  },
+  {
+    "id": "Q09",
+    "title": "Ten patients who smoke",
+    "sql": "SELECT ID, SMOKE, CARDIO FROM CARDIO_TRAIN WHERE SMOKE = 1 ORDER BY ID LIMIT 10",
+    "columns": [
+      "ID",
+      "SMOKE",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        23,
+        1,
+        0
+      ],
+      [
+        29,
+        1,
+        0
+      ],
+      [
+        52,
+        1,
+        1
+      ],
+      [
+        73,
+        1,
+        1
+      ],
+      [
+        74,
+        1,
+        1
+      ],
+      [
+        90,
+        1,
+        1
+      ],
+      [
+        138,
+        1,
+        0
+      ],
+      [
+        140,
+        1,
+        1
+      ],
+      [
+        142,
+        1,
+        1
+      ],
+      [
+        166,
+        1,
+        1
+      ]
+    ],
+    "disease_cases": 7,
+    "sample_size": 10,
+    "disease_percent": 70.0
+  },
+  {
+    "id": "Q10",
+    "title": "Ten physically active patients",
+    "sql": "SELECT ID, ACTIVE, CARDIO FROM CARDIO_TRAIN WHERE ACTIVE = 1 ORDER BY ID LIMIT 10",
+    "columns": [
+      "ID",
+      "ACTIVE",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        9,
+        1,
+        0
+      ],
+      [
+        12,
+        1,
+        1
+      ],
+      [
+        13,
+        1,
+        0
+      ],
+      [
+        15,
+        1,
+        0
+      ],
+      [
+        16,
+        1,
+        0
+      ],
+      [
+        21,
+        1,
+        0
+      ],
+      [
+        23,
+        1,
+        0
+      ]
+    ],
+    "disease_cases": 3,
+    "sample_size": 10,
+    "disease_percent": 30.0
+  },
+  {
+    "id": "Q11",
+    "title": "Preview ten patient records",
+    "sql": "SELECT * FROM CARDIO_TRAIN ORDER BY ID LIMIT 10",
+    "columns": [
+      "ID",
+      "AGE",
+      "GENDER",
+      "HEIGHT",
+      "WEIGHT",
+      "AP_HI",
+      "AP_LO",
+      "CHOLESTEROL",
+      "GLUC",
+      "SMOKE",
+      "ALCO",
+      "ACTIVE",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        0,
+        18393,
+        2,
+        168,
+        62.0,
+        110,
+        80,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        20228,
+        1,
+        156,
+        85.0,
+        140,
+        90,
+        3,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        2,
+        18857,
+        1,
+        165,
+        64.0,
+        130,
+        70,
+        3,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        3,
+        17623,
+        2,
+        169,
+        82.0,
+        150,
+        100,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        4,
+        17474,
+        1,
+        156,
+        56.0,
+        100,
+        60,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        8,
+        21914,
+        1,
+        151,
+        67.0,
+        120,
+        80,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        9,
+        22113,
+        1,
+        157,
+        93.0,
+        130,
+        80,
+        3,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        12,
+        22584,
+        2,
+        178,
+        95.0,
+        130,
+        90,
+        3,
+        3,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        13,
+        17668,
+        1,
+        158,
+        71.0,
+        110,
+        70,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        14,
+        19834,
+        1,
+        164,
+        68.0,
+        110,
+        60,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "disease_cases": 4,
+    "sample_size": 10,
+    "disease_percent": 40.0
+  },
+  {
+    "id": "Q12",
+    "title": "Ten lowest diastolic blood pressure values",
+    "sql": "SELECT ID, AP_LO, CARDIO FROM CARDIO_TRAIN ORDER BY AP_LO, ID LIMIT 10",
+    "columns": [
+      "ID",
+      "AP_LO",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        85816,
+        -70,
+        1
+      ],
+      [
+        2845,
+        0,
+        0
+      ],
+      [
+        19258,
+        0,
+        0
+      ],
+      [
+        23512,
+        0,
+        1
+      ],
+      [
+        24837,
+        0,
+        0
+      ],
+      [
+        32749,
+        0,
+        1
+      ],
+      [
+        34120,
+        0,
+        1
+      ],
+      [
+        36325,
+        0,
+        0
+      ],
+      [
+        39577,
+        0,
+        1
+      ],
+      [
+        45400,
+        0,
+        0
+      ]
+    ],
+    "disease_cases": 5,
+    "sample_size": 10,
+    "disease_percent": 50.0
+  },
+  {
+    "id": "Q13",
+    "title": "Ten patients who drink alcohol",
+    "sql": "SELECT ID, ALCO, CARDIO FROM CARDIO_TRAIN WHERE ALCO = 1 ORDER BY ID LIMIT 10",
+    "columns": [
+      "ID",
+      "ALCO",
+      "CARDIO"
+    ],
+    "rows": [
+      [
+        23,
+        1,
+        0
+      ],
+      [
+        81,
+        1,
+        0
+      ],
+      [
+        134,
+        1,
+        1
+      ],
+      [
+        136,
+        1,
+        0
+      ],
+      [
+        142,
+        1,
+        1
+      ],
+      [
+        180,
+        1,
+        1
+      ],
+      [
+        199,
+        1,
+        0
+      ],
+      [
+        213,
+        1,
+        1
+      ],
+      [
+        240,
+        1,
+        0
+      ],
+      [
+        318,
+        1,
+        1
+      ]
+    ],
+    "disease_cases": 5,
+    "sample_size": 10,
+    "disease_percent": 50.0
+  }
+]
